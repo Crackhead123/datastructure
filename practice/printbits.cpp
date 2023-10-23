@@ -36,7 +36,7 @@ void find(int diff,char* out,int start,int end)
 int main()
 {
     int n=2;
-    char out[2*n];
+    char out[2*n+1];
     out[2*n]='\0';
     find(0,out,0,2*n-1);
     return 0;
