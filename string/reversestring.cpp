@@ -1,48 +1,42 @@
-#include <iostream>
-#include <string>
-
+#include<bits/stdc++.h>
 using namespace std;
-
-
-string reverseString(string s)
+void reverse(char str[],int low,int high);
+void reverseString(char str[],int n)
 {
-    string ans="";
-    string temp="";
+    int start=0;
+    for(int end=0;end<n;end++)
+    {
+        if(str[end]==' ')
+        {
+            reverse(str,start,end-1);
+            start=end+1;
+        }
+    }
+    reverse(str,start,n-1);
+    reverse(str,0,n-1);
+}
 
-    for(int i=0;i<s.length();i++)
+void reverse(char str[],int low,int high)
+{
+    while(low<=high)
     {
-        char ch=s[i];
-        if(ch==' ')
-        {
-            if(temp!="")
-            {
-                ans=temp+" "+ans;
-            }
-            temp= "";
-        }
-        else 
-        {
-            temp+=ch;
-        }
+        swap(str[low],str[high]);
+        low++;
+        high--;
     }
-    if(temp!="")
-    {
-        ans = temp+" "+ans;
-    }
-    if(ans.length()>0&&ans[ans.length()-1]==' ')
-    {
-        ans=ans.substr(0,ans.length()-1);
-    }
-    return ans;
 }
 
 int main()
 {
-    string str = "i like this program very much";
- 
-    str = reverseString(str);
- 
-    cout << str;
- 
+    string s="Welcome to Gfg";
+    int n=s.length();
+    char str[n];
+    strcpy(str,s.c_str());
+    reverseString(str,n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<str[i];
+    }
     return 0;
+
 }
