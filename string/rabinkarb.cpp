@@ -4,9 +4,9 @@ using namespace std;
 
 const int q=101;
 
-void rabinKarb(string &pat,string &txt,int m,int n)
+void RBSearch(string &pat,string &txt,int m,int n)
 {
-    int h;
+    int h=1;
     for(int i=1;i<=m-1;i++)
     {
         h=(h*d)%q;
@@ -42,4 +42,12 @@ void rabinKarb(string &pat,string &txt,int m,int n)
             }
         }
     }
+}
+int main()
+{
+     string txt = "GEEKS FOR GEEKS";string pat="GEEK";
+    cout<<"All index numbers where pattern found:"<<" ";
+    RBSearch(pat,txt,4,15);
+    
+    return 0; 
 }

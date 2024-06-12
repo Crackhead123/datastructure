@@ -4,5 +4,7 @@ using namespace std;
 
 int main()
 {
-    cout<<(2-1+1)/2;
+    int *i;
+    int **p=&i;
+    cout<<p;
 }
